@@ -16,4 +16,7 @@ export const API_ENDPOINTS = {
   chat: `${BACKEND_URL}/api/chat`,
   history: `${BACKEND_URL}/api/chat/history`,
   profile: `${BACKEND_URL}/api/profile`,
+  register: `${BACKEND_URL}/api/auth/register`,
+  login: `${BACKEND_URL}/api/auth/login`,
+  me: `${BACKEND_URL}/api/auth/me`,
 };

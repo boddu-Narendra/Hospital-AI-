@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://render.com/schema/render.yaml.json
 services:
   # ---------------------------------------------------------------------------
-  # Backend API Service (FastAPI / Python)
+  # Backend API Service (FastAPI / Python + MongoDB Atlas)
   # ---------------------------------------------------------------------------
   - type: web
     name: hospital-ai-agent-api
@@ -15,10 +15,10 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.9
-      - key: SUPABASE_URL
+      - key: MONGODB_URI
         sync: false
-      - key: SUPABASE_KEY
-        sync: false
+      - key: JWT_SECRET
+        generateValue: true
       - key: ALLOWED_ORIGIN_REGEX
         value: "^https://.*(\\.onrender\\.com|\\.vercel\\.app)$"
       - key: FRONTEND_URL

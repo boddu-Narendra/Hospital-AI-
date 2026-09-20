@@ -5,7 +5,8 @@ from fastapi import APIRouter, Header, HTTPException
 
 from app.models.chat import ChatHistoryItem, ChatRequest, ChatResponse
 from app.services.agent import run_health_agent
-from app.services.supabase_client import get_chat_history, save_chat_history, validate_access_token
+from app.services.auth import validate_access_token
+from app.services.mongodb_client import get_chat_history, save_chat_history
 
 logger = logging.getLogger(__name__)
 router = APIRouter(tags=["chat"])
