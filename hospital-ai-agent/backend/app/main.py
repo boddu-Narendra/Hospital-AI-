@@ -13,12 +13,14 @@ load_dotenv()
 
 app = FastAPI(title="Health AI Agent API", version="1.0.0")
 
-# Allow local frontend development and production Render deployments
+# Allow local frontend development and production deployments
 default_origins = [
     "http://localhost:5173",
     "http://localhost:5174",
     "http://127.0.0.1:5173",
     "http://127.0.0.1:5174",
+    "https://hospital-ai-one.vercel.app",
+    "https://hospital-ai-agent-api.onrender.com",
 ]
 
 frontend_urls = os.getenv("FRONTEND_URL", "")
@@ -27,7 +29,7 @@ allowed_origins_env = os.getenv("ALLOWED_ORIGINS", "")
 additional_origins = []
 for source in [frontend_urls, allowed_origins_env]:
     if source:
-        additional_origins.extend([o.strip() for o in source.split(",") if o.strip()])
+        additional_origins.extend([o.strip().rstrip("/") for o in source.split(",") if o.strip()])
 
 allowed_origins = list(dict.fromkeys(default_origins + additional_origins))
 allowed_origin_regex = os.getenv("ALLOWED_ORIGIN_REGEX", r"^https:\/\/.*(\.onrender\.com|\.vercel\.app)$")

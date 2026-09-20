@@ -22,4 +22,4 @@ services:
       - key: ALLOWED_ORIGIN_REGEX
         value: "^https://.*(\\.onrender\\.com|\\.vercel\\.app)$"
       - key: FRONTEND_URL
-        sync: false
+        value: "https://hospital-ai-one.vercel.app"
