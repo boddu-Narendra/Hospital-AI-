@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { supabase, isDemoMode, getDemoSession, saveDemoUsers, getDemoUsers, clearDemoSession } from "../supabaseClient";
+import { API_ENDPOINTS } from "../apiConfig";
 
-const PROFILE_API_URL = '/api/profile';
-const HISTORY_API_URL = '/api/chat/history';
+const PROFILE_API_URL = API_ENDPOINTS.profile;
+const HISTORY_API_URL = API_ENDPOINTS.history;
 
 function Profile() {
   const navigate = useNavigate();

@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Bot, X, Send, Sparkles, AlertCircle, RefreshCw, CalendarPlus } from "lucide-react";
 import { useHospital } from "../../context/HospitalContext";
 import { buildDemoResponse, isDemoMode, getDemoSession } from "../../supabaseClient";
+import { API_ENDPOINTS } from "../../apiConfig";
 import { useNavigate } from "react-router-dom";
 
 export default function FloatingAiWidget() {
@@ -56,7 +57,7 @@ export default function FloatingAiWidget() {
       const session = getDemoSession();
       const token = session?.access_token || "demo-token";
 
-      const res = await fetch("/api/chat", {
+      const res = await fetch(API_ENDPOINTS.chat, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

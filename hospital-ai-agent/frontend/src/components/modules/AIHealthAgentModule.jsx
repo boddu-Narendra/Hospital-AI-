@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { useHospital } from "../../context/HospitalContext";
 import { buildDemoResponse, isDemoMode, getDemoSession } from "../../supabaseClient";
+import { API_ENDPOINTS } from "../../apiConfig";
 
 export default function AIHealthAgentModule() {
   const navigate = useNavigate();
@@ -68,7 +69,7 @@ export default function AIHealthAgentModule() {
       const session = getDemoSession();
       const token = session?.access_token || "demo-token";
 
-      const res = await fetch("/api/chat", {
+      const res = await fetch(API_ENDPOINTS.chat, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

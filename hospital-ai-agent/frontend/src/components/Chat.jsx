@@ -2,10 +2,11 @@ import { useEffect, useMemo, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import ChatMessage from "./ChatMessage";
 import { supabase, isDemoMode, getDemoSession, clearDemoSession, buildDemoResponse } from "../supabaseClient";
+import { API_ENDPOINTS } from "../apiConfig";
 
-const CHAT_API_URL = '/api/chat';
-const HISTORY_API_URL = '/api/chat/history';
-const PROFILE_API_URL = '/api/profile';
+const CHAT_API_URL = API_ENDPOINTS.chat;
+const HISTORY_API_URL = API_ENDPOINTS.history;
+const PROFILE_API_URL = API_ENDPOINTS.profile;
 
 const assistantWelcome =
   "Hi, I am your Health AI Agent. Tell me your symptoms or ask a health question.";
