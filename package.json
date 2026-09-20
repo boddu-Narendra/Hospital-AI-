@@ -1,0 +1,10 @@
+{
+  "name": "hospital-ai-agent",
+  "private": true,
+  "scripts": {
+    "install:frontend": "npm --prefix ./hospital-ai-agent/frontend install",
+    "dev": "npm --prefix ./hospital-ai-agent/frontend run dev -- --host 0.0.0.0",
+    "build": "npm --prefix ./hospital-ai-agent/frontend run build",
+    "preview": "npm --prefix ./hospital-ai-agent/frontend run preview -- --host 0.0.0.0"
+  }
+}
