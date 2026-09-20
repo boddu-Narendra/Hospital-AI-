@@ -29,7 +29,7 @@ for source in [frontend_urls, allowed_origins_env]:
         additional_origins.extend([o.strip() for o in source.split(",") if o.strip()])
 
 allowed_origins = list(dict.fromkeys(default_origins + additional_origins))
-allowed_origin_regex = os.getenv("ALLOWED_ORIGIN_REGEX", r"^https:\/\/.*\.onrender\.com$")
+allowed_origin_regex = os.getenv("ALLOWED_ORIGIN_REGEX", r"^https:\/\/.*(\.onrender\.com|\.vercel\.app)$")
 
 app.add_middleware(
     CORSMiddleware,
